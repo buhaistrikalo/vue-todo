@@ -4,7 +4,7 @@
             <input type="checkbox" v-on:change='todo.completed = !todo.completed'>
             <span>
                 <strong>{{ index + 1 }}</strong>
-                {{ todo.title }}
+                {{ todo.title | uppercase }}
 
             </span>
         </div>
@@ -22,6 +22,11 @@ export default {
             required: true
         },
         index: Number
+    },
+    filters: {
+        uppercase(value) {
+            return value[0].toUpperCase() + value.slice(1);
+        }
     }
 }
 </script>
