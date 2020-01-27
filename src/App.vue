@@ -27,6 +27,13 @@ export default {
       ]
     }
   },
+  mounted() {
+    fetch('https://jsonplaceholder.typicode.com/todos?_limit=3')
+      .then(response => response.json())
+      .then(json =>{
+        this.todos = json
+      })
+  },
   methods: {
     removeTodo(id){
       this.todos= this.todos.filter(t => t.id !== id)
